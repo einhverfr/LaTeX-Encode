@@ -43,6 +43,8 @@ our @mappings_specified_on_import;
 Readonly my $IMPORT_TAG_ADD    => 'add';
 Readonly my $IMPORT_TAG_REMOVE => 'remove';
 
+my %latex_encoding_base;
+
 our $encoded_char_re;
 
 our %latex_encoding;
@@ -176,10 +178,10 @@ sub reset_latex_encodings {
     if ($class !~ /::/) {
         $forget_import_specifiers = $class;
     }
+    %latex_encoding = ();
 
-    delete $INC{'LaTeX/Encode/EncodingTable.pm'};
-    undef &LaTeX::Encode::EncodingTable::_compile_encoding_regexp;
-    require LaTeX::Encode::EncodingTable;
+    $latex_encoding{$_} = $latex_encoding_base{$_} 
+         for keys %latex_encoding_base;
 
     if (! $forget_import_specifiers ) {
         foreach my $spec ( @mappings_specified_on_import ) {
@@ -223,7 +225,7 @@ sub import {
 }
 
 
-%latex_encoding = (
+%latex_encoding_base = (
 
     chr(0x0022) => '{\\textacutedbl}',            # QUOTATION MARK                               (&quot;)
     chr(0x0023) => '\\#',                         # NUMBER SIGN                                  (&#35;)
@@ -845,6 +847,8 @@ sub import {
 
 );
 
+reset_latex_encodings(1);
+
 sub _compile_encoding_regexp {
     $encoded_char_re = join q{}, sort keys %latex_encoding;
     $encoded_char_re =~ s{ ([#$\[\]\\]) }{\\$1}gmsx;
@@ -852,7 +856,7 @@ sub _compile_encoding_regexp {
     return;
 }
 
-_compile_encoding_regexp();
+_compile_encoding_regexp;
 
 
 1;

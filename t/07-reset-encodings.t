@@ -17,4 +17,6 @@ is(latex_encode('$'), '$',         'post remove_latex_encoding (\'$\' => \'$\')'
 
 LaTeX::Encode->reset_latex_encodings();
 
+warn %latex_encoding{'$'};
+
 is(latex_encode('$'), '\\$',       'post reset_latex_encoding (\'$\' => \'\\$\')');

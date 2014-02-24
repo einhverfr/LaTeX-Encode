@@ -162,8 +162,7 @@ C_FILES  =
 O_FILES  = 
 H_FILES  = 
 MAN1PODS = scripts/latex-encode
-MAN3PODS = lib/LaTeX/Encode.pm \
-	lib/LaTeX/Encode/EncodingTable.pm
+MAN3PODS = lib/LaTeX/Encode.pm
 
 # Where is the Config information that we are using/depend on
 CONFIGDEP = $(PERL_ARCHLIB)$(DFSEP)Config.pm $(PERL_INC)$(DFSEP)config.h
@@ -185,12 +184,9 @@ PERL_ARCHIVE       =
 PERL_ARCHIVE_AFTER = 
 
 
-TO_INST_PM = lib/LaTeX/Encode.pm \
-	lib/LaTeX/Encode/EncodingTable.pm
+TO_INST_PM = lib/LaTeX/Encode.pm
 
-PM_TO_BLIB = lib/LaTeX/Encode/EncodingTable.pm \
-	blib/lib/LaTeX/Encode/EncodingTable.pm \
-	lib/LaTeX/Encode.pm \
+PM_TO_BLIB = lib/LaTeX/Encode.pm \
 	blib/lib/LaTeX/Encode.pm
 
 
@@ -415,12 +411,10 @@ POD2MAN = $(POD2MAN_EXE)
 
 manifypods : pure_all  \
 	scripts/latex-encode \
-	lib/LaTeX/Encode/EncodingTable.pm \
 	lib/LaTeX/Encode.pm
 	$(NOECHO) $(POD2MAN) --section=1 --perm_rw=$(PERM_RW) \
 	  scripts/latex-encode $(INST_MAN1DIR)/latex-encode.$(MAN1EXT) 
 	$(NOECHO) $(POD2MAN) --section=3 --perm_rw=$(PERM_RW) \
-	  lib/LaTeX/Encode/EncodingTable.pm $(INST_MAN3DIR)/LaTeX::Encode::EncodingTable.$(MAN3EXT) \
 	  lib/LaTeX/Encode.pm $(INST_MAN3DIR)/LaTeX::Encode.$(MAN3EXT) 
 
 
@@ -891,7 +885,6 @@ ppd :
 
 pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
-	  lib/LaTeX/Encode/EncodingTable.pm blib/lib/LaTeX/Encode/EncodingTable.pm \
 	  lib/LaTeX/Encode.pm blib/lib/LaTeX/Encode.pm 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
