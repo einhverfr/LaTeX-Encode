@@ -6,11 +6,16 @@ use warnings;
 
 use blib;
 use LaTeX::Encode;
-use LaTeX::Encode::EncodingTable;
 use charnames qw();
 
-use Test::More tests => 8 + int keys %latex_encoding;
+my %latex_encoding = %LaTeX::Encode::latex_encoding;
+my $tests = 8 + scalar(keys %latex_encoding);
 
+warn $tests;
+
+use Test::More;
+
+plan tests => $tests;
 
 ok(int keys %latex_encoding > 300, "encoding table isn\'t empty (has " . int(keys %latex_encoding) . " keys)");
 
