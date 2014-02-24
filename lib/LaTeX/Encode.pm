@@ -145,8 +145,7 @@ sub add_latex_encodings {
             $changed = 1;
         }
     }
-    LaTeX::Encode::EncodingTable::_compile_encoding_regexp()
-        if $changed;
+    _compile_encoding_regexp() if $changed;
     return unless defined wantarray;
     return %old_encoding;
 }
@@ -164,8 +163,7 @@ sub remove_latex_encodings {
             $removed_encoding{$key} = delete $latex_encoding{$key};
         }
     }
-    LaTeX::Encode::EncodingTable::_compile_encoding_regexp()
-        if keys %removed_encoding;
+    _compile_encoding_regexp() if keys %removed_encoding;
     return unless defined wantarray;
     return %removed_encoding;
 }
