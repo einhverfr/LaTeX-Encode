@@ -193,6 +193,7 @@ sub reset_latex_encodings {
             }
         }
     }
+    _compile_encoding_regexp();
     
     return;
 }
