@@ -31,7 +31,7 @@ use base qw(Exporter);
 
 our $VERSION     = 0.08;
 
-our @EXPORT      = qw(latex_encode);
+our @EXPORT      = qw(latex_encode latex_encoding encoded_char_re provided_by);
 our @EXPORT_OK   = qw(add_latex_encodings remove_latex_encodings reset_latex_encodings);
 our %EXPORT_TAGS = ( all => [ qw( latex_encode 
                                   add_latex_encodings
@@ -43,7 +43,7 @@ our @mappings_specified_on_import;
 Readonly my $IMPORT_TAG_ADD    => 'add';
 Readonly my $IMPORT_TAG_REMOVE => 'remove';
 
-my $encoded_char_re;
+our $encoded_char_re;
 
 our %latex_encoding;
 
