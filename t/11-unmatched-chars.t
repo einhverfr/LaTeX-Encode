@@ -6,7 +6,6 @@ use warnings;
 
 use blib;
 use LaTeX::Encode;
-use LaTeX::Encode::EncodingTable;
 use charnames qw();
 
 use Test::More tests => 3;

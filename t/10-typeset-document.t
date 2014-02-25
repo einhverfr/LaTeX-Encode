@@ -9,7 +9,6 @@ use FindBin;
 use File::Basename;
 use IO::File;
 use LaTeX::Encode;
-use LaTeX::Encode::EncodingTable;
 use charnames qw();
 
 use Test::More;
@@ -25,7 +24,7 @@ else {
 
 
 my $table_body = '';
-
+my %latex_encoding = %LaTeX::Encode::latex_encoding;
 foreach my $char (sort keys %latex_encoding) {
     my $charcode = ord($char);
     my $charname = charnames::viacode($charcode);

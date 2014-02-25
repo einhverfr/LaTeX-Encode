@@ -31,7 +31,7 @@ use base qw(Exporter);
 
 our $VERSION     = 0.08;
 
-our @EXPORT      = qw(latex_encode latex_encoding encoded_char_re provided_by);
+our @EXPORT      = qw(latex_encode);
 our @EXPORT_OK   = qw(add_latex_encodings remove_latex_encodings reset_latex_encodings);
 our %EXPORT_TAGS = ( all => [ qw( latex_encode 
                                   add_latex_encodings
