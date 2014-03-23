@@ -29,7 +29,7 @@ use Readonly;
 
 use base qw(Exporter);
 
-our $VERSION     = 0.08;
+our $VERSION     = 0.09;
 
 our @EXPORT      = qw(latex_encode);
 our @EXPORT_OK   = qw(add_latex_encodings remove_latex_encodings reset_latex_encodings);

@@ -1,3 +1,12 @@
+2014-03-23  Chris Travers <chris.travers@gmail.com>
+
+	* version 0.09
+
+	* Added additional test case for some entities to make verify table
+
+	* Merged in LaTeX::Encode::EncodingTable
+	
+
 2012-09-30  Andrew Ford  <a.ford@ford-mason.co.uk>
 
         * version 0.08
