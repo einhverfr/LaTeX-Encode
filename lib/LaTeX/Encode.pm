@@ -881,7 +881,7 @@ LaTeX::Encode - encode characters for LaTeX formatting
 
 =head1 VERSION
 
-This manual page describes version 0.08 of the C<LaTeX::Encode> module.
+This manual page describes version 0.09 of the C<LaTeX::Encode> module.
 
 
 =head1 DESCRIPTION
@@ -1035,7 +1035,7 @@ Not applicable.
 =head1 DEPENDENCIES
 
 The C<HTML::Entities> and C<Pod::LaTeX> modules were used for building
-the encoding table in C<LaTeX::Encode::EncodingTable>, but this is not
+the encoding table but this is not
 rebuilt at installation time.  The C<LaTeX::Driver> module is used for
 formatting the character encodings reference document.
 
