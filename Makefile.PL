@@ -17,7 +17,10 @@ WriteMakefile(
         'Pod::LaTeX'        => 0,
         'Pod::Usage'        => 0,
         'Readonly'          => 0,
+    },
+    BUILD_REQUIRES => {
         'Test::More'        => 0,
+	'Carp::Always'      => 0,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'LaTeX-Encode-*' },

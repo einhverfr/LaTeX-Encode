@@ -3,6 +3,7 @@
 
 use strict;
 use warnings;
+use Carp::Always;
 
 use Test::More tests => 3;
 

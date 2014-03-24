@@ -29,7 +29,7 @@ use Readonly;
 
 use base qw(Exporter);
 
-our $VERSION     = 0.09;
+our $VERSION     = 0.091;
 
 our @EXPORT      = qw(latex_encode);
 our @EXPORT_OK   = qw(add_latex_encodings remove_latex_encodings reset_latex_encodings);
@@ -881,7 +881,7 @@ LaTeX::Encode - encode characters for LaTeX formatting
 
 =head1 VERSION
 
-This manual page describes version 0.09 of the C<LaTeX::Encode> module.
+This manual page describes version 0.091 of the C<LaTeX::Encode> module.
 
 
 =head1 DESCRIPTION
