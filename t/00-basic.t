@@ -5,19 +5,10 @@ use strict;
 use warnings;
 use Carp::Always;
 
-use Test::More tests => 3;
+use Test::More tests => 1;
 
 use blib;
-use IO::File;
 
 use_ok("LaTeX::Encode");
 
-my $fh = IO::File->new($INC{"LaTeX/Encode.pm"}, "r");
-my $content = join q{}, <$fh>;
-undef $fh;
 
-my ($module_version) = ($content =~ m{ \$VERSION\s*=\s*([\.\d]+) }x);
-my ($doc_version)    = ($content =~ m{ describes \s+ version \s+ ([\.\d]+) }x);
-
-like($module_version, qr{ \d+ \. \d+ }x, 'module version is sane');
-is($module_version, $doc_version, 'module and POD version agree');

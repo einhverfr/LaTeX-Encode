@@ -1,3 +1,10 @@
+2014-03-24  Chris Travers <chris.travers@gmail.com>
+
+	* version 0.091.1
+
+	* Fixed Test Cases failing taint mode under Perl 5.12 and lower.
+
+
 2014-03-23  Chris Travers <chris.travers@gmail.com>
 
 	* version 0.09
