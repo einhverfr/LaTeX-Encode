@@ -60,11 +60,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = LaTeX::Encode
 NAME_SYM = LaTeX_Encode
-VERSION = 0.091
+VERSION = 0.091.3
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_091
+VERSION_SYM = 0_091_3
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.091
+XS_VERSION = 0.091.3
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -184,9 +184,12 @@ PERL_ARCHIVE       =
 PERL_ARCHIVE_AFTER = 
 
 
-TO_INST_PM = lib/LaTeX/Encode.pm
+TO_INST_PM = lib/LaTeX/Encode.pm \
+	lib/LaTeX/Encode.pm.orig
 
-PM_TO_BLIB = lib/LaTeX/Encode.pm \
+PM_TO_BLIB = lib/LaTeX/Encode.pm.orig \
+	blib/lib/LaTeX/Encode.pm.orig \
+	lib/LaTeX/Encode.pm \
 	blib/lib/LaTeX/Encode.pm
 
 
@@ -256,7 +259,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = LaTeX-Encode
-DISTVNAME = LaTeX-Encode-0.091
+DISTVNAME = LaTeX-Encode-0.091.3
 
 
 # --- MakeMaker macro section:
@@ -522,7 +525,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '  Pod::LaTeX: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Pod::Usage: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Readonly: 0' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version: 0.091' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version: v0.091.3' >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
 	$(NOECHO) $(ECHO) Generating META.json
 	$(NOECHO) $(ECHO) '{' > META_new.json
@@ -569,7 +572,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      }' >> META_new.json
 	$(NOECHO) $(ECHO) '   },' >> META_new.json
 	$(NOECHO) $(ECHO) '   "release_status" : "stable",' >> META_new.json
-	$(NOECHO) $(ECHO) '   "version" : "0.091"' >> META_new.json
+	$(NOECHO) $(ECHO) '   "version" : "v0.091.3"' >> META_new.json
 	$(NOECHO) $(ECHO) '}' >> META_new.json
 	-$(NOECHO) $(MV) META_new.json $(DISTVNAME)/META.json
 
@@ -884,6 +887,7 @@ ppd :
 
 pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
+	  lib/LaTeX/Encode.pm.orig blib/lib/LaTeX/Encode.pm.orig \
 	  lib/LaTeX/Encode.pm blib/lib/LaTeX/Encode.pm 
 	$(NOECHO) $(TOUCH) pm_to_blib
 

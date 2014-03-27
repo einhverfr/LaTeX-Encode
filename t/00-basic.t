@@ -7,8 +7,6 @@ use Carp::Always;
 
 use Test::More tests => 1;
 
-use blib;
-
 use_ok("LaTeX::Encode");
 
 

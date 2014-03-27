@@ -1,3 +1,9 @@
+2014-03-25  Chris Travers <chris.travers@gmail.com>
+
+	* version 0.091.3
+
+	* Further regexp fixes for 5.19 bracket handling
+
 2014-03-24  Chris Travers <chris.travers@gmail.com>
 
 	* version 0.091.1
