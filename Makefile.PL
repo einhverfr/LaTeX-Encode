@@ -6,11 +6,14 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME                => 'LaTeX::Encode',
-    AUTHOR              => 'Andrew Ford <a.ford@ford-mason.co.uk>',
+    AUTHOR              => 'Chris Travers <chris@efficito.com>',
     VERSION_FROM        => 'lib/LaTeX/Encode.pm',
     ABSTRACT_FROM       => 'lib/LaTeX/Encode.pm',
     PL_FILES            => {},
     EXE_FILES           => [ 'scripts/latex-encode' ],
+    ($ExtUtils::MakeMaker::VERSION >= 6.3002
+      ? ('LICENSE'=> 'perl')
+      : ()),
     PREREQ_PM => {
         'Getopt::Long'      => 0,
         'HTML::Entities'    => 0,
@@ -24,6 +27,16 @@ WriteMakefile(
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'LaTeX-Encode-*' },
+    META_MERGE => {
+        'meta-spec' => { version => 2 },
+         resources => {
+             repository => {
+                 type => 'git',
+                 url  => 'https://github.com/einhverfr/LaTeX-Encode.git',
+                 web  => 'https://github.com/einhverfr/LaTeX-Encode',
+             },
+         },
+    },
 );
 
 no warnings 'redefine';
