@@ -1,16 +1,17 @@
+Changes
+lib/LaTeX/Encode.pm
 Makefile.PL
 MANIFEST
-MANIFEST.SKIP
+META.json			Module JSON meta-data (added by MakeMaker)
+META.yml			Module YAML meta-data (added by MakeMaker)
 README
-Changes
-TODO
-lib/LaTeX/Encode.pm
-scripts/README
+README.md
 scripts/build-encoding-table
+scripts/character-encodings.dvi
+scripts/character-encodings.tex
 scripts/format-encoding-reference
 scripts/latex-encode
-scripts/character-encodings.tex
-scripts/character-encodings.dvi
+scripts/README
 t/00-basic.t
 t/01-filter.t
 t/02-iquotes.t
@@ -29,5 +30,4 @@ t/91-pod.t
 t/92-pod-coverage.t
 t/93-perl-critic.t
 t/perlcriticrc
-META.yml                                 Module YAML meta-data (added by MakeMaker)
-META.json                                Module JSON meta-data (added by MakeMaker)
+TODO
