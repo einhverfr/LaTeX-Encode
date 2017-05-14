@@ -1,12 +1,10 @@
 Makefile.PL
 MANIFEST
+MANIFEST.SKIP
 README
 Changes
 TODO
-MYMETA.yml
-MYMETA.json
 lib/LaTeX/Encode.pm
-lib/LaTeX/Encode/EncodingTable.pm
 scripts/README
 scripts/build-encoding-table
 scripts/format-encoding-reference
@@ -25,6 +23,7 @@ t/08-import-specs.t
 t/09-packages-reqd.t
 t/10-typeset-document.t
 t/11-unmatched-chars.t
+t/12-common_cases.t
 t/90-kwalitee.t
 t/91-pod.t
 t/92-pod-coverage.t
